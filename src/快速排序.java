@@ -2,20 +2,14 @@ import java.util.Arrays;
 
 public class 快速排序 {
     public static void main(String[] args) {
-        int[] ck = {3, 9, 4, 5, 4,4,4,6,654,98,79,735,4,32, 5, 6, 1, 3, 6, 7};
-        int len=ck.length-1;
-        Sort(ck,0,len);
+        int[] ck = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        int len = ck.length - 1;
+        Sort(ck, 0, len);
         System.out.println(Arrays.toString(ck));
     }
 
-    static void cover(int a, int b) {
-        int temp = a;
-        a = b;
-        b = temp;
-    }
-
     static void Sort(int[] nums, int left, int right) {
-        int i, j, t, temp;
+        int i, j, temp;
         if (left > right) {
             return;
         }
@@ -30,12 +24,15 @@ public class 快速排序 {
                 i++;
             }
             if (i < j) {
-                cover(nums[i], nums[j]);
+                int a = nums[i];
+                nums[i] = nums[j];
+                nums[j] = a;
             }
-            nums[left] = nums[i];
-            nums[i] = temp;
-            Sort(nums, left, i - 1);
-            Sort(nums, i + 1, right);
         }
+        nums[left] = nums[i];
+        nums[i] = temp;
+        Sort(nums, left, i - 1);
+        Sort(nums, i + 1, right);
+
     }
 }
