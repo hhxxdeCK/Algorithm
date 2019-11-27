@@ -1,3 +1,5 @@
+package sort;
+
 import java.util.Arrays;
 
 public class 插入排序 {

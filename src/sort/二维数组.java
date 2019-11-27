@@ -1,3 +1,5 @@
+package sort;
+
 public class 二维数组 {
     public static void main(String[] args) {
         int[][] ck = {
